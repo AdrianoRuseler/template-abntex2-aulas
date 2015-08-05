@@ -1,0 +1,27 @@
+\BOOKMARK [2][]{Outline0.1}{Retificador trif\341sico a tiristor com carga resistiva}{}% 1
+\BOOKMARK [3][]{Outline0.1.1.2}{Apresenta\347\343o da topologia}{Outline0.1}% 2
+\BOOKMARK [2][]{Outline0.2}{Metodologia empregada para entender a estrutura}{}% 3
+\BOOKMARK [3][]{Outline0.2.1.4}{Caracter\355stica est\341tica do tiristor ideal}{Outline0.2}% 4
+\BOOKMARK [2][]{Outline0.3}{Resultados}{}% 5
+\BOOKMARK [3][]{Outline0.3.1.6}{Nomenclatura utilizada no PSIM}{Outline0.3}% 6
+\BOOKMARK [3][]{Outline0.3.2.7}{Caso particular da ponte de Graetz a tiristor}{Outline0.3}% 7
+\BOOKMARK [3][]{Outline0.3.3.8}{Caso particular da ponte de Graetz a tiristor}{Outline0.3}% 8
+\BOOKMARK [3][]{Outline0.3.4.9}{Tens\343o senoidal de entrada do retificador}{Outline0.3}% 9
+\BOOKMARK [3][]{Outline0.3.5.12}{Polariza\347\343o do tiristor T1 e T4}{Outline0.3}% 10
+\BOOKMARK [3][]{Outline0.3.6.13}{Configura\347\365es poss\355veis T1 e T4}{Outline0.3}% 11
+\BOOKMARK [3][]{Outline0.3.7.14}{Polariza\347\343o do tiristor T2 e T5}{Outline0.3}% 12
+\BOOKMARK [3][]{Outline0.3.8.15}{Configura\347\365es poss\355veis T2 e T5}{Outline0.3}% 13
+\BOOKMARK [3][]{Outline0.3.9.16}{Polariza\347\343o do tiristor T3 e T6}{Outline0.3}% 14
+\BOOKMARK [3][]{Outline0.3.10.17}{Configura\347\365es poss\355veis T3 e T6}{Outline0.3}% 15
+\BOOKMARK [3][]{Outline0.3.11.18}{Opera\347\343o com angulo zero}{Outline0.3}% 16
+\BOOKMARK [3][]{Outline0.3.12.19}{Opera\347\343o com 30 graus de disparo}{Outline0.3}% 17
+\BOOKMARK [3][]{Outline0.3.13.20}{Opera\347\343o com 60 graus de disparo}{Outline0.3}% 18
+\BOOKMARK [3][]{Outline0.3.14.21}{Opera\347\343o com 90 graus de disparo}{Outline0.3}% 19
+\BOOKMARK [3][]{Outline0.3.15.22}{Regi\365es de opera\347\343o}{Outline0.3}% 20
+\BOOKMARK [3][]{Outline0.3.16.23}{Opera\347\343o com 90 graus de disparo e carga indutiva}{Outline0.3}% 21
+\BOOKMARK [3][]{Outline0.3.17.24}{Regi\365es de opera\347\343o}{Outline0.3}% 22
+\BOOKMARK [3][]{Outline0.3.18.25}{D\372vidas??}{Outline0.3}% 23
+\BOOKMARK [3][]{Outline0.3.19.26}{Valores m\351dios de tens\343o na carga}{Outline0.3}% 24
+\BOOKMARK [3][]{Outline0.3.20.27}{Valores m\351dios de tens\343o na carga }{Outline0.3}% 25
+\BOOKMARK [3][]{Outline0.3.21.28}{Valores m\351dios de tens\343o na carga }{Outline0.3}% 26
+\BOOKMARK [2][]{Outline0.4}{Refer\352ncias}{}% 27

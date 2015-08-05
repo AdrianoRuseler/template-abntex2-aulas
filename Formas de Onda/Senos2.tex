@@ -1,0 +1,113 @@
+%
+\documentclass{standalone}
+% \usepackage{tikz}
+\usepackage{pgfplots} % loads also tikz
+\usepackage{grffile}
+\pgfplotsset{compat=newest} % This will configure the compatibility layer
+\usetikzlibrary{plotmarks}
+\usepackage{amsmath}
+\usepackage{color} % Using this package, you can set the font color, text background, or page background
+\usetikzlibrary{arrows,shapes,positioning}
+\usepackage{anyfontsize}
+\usepackage{siunitx}
+
+\tikzset{ % Set line width
+	ultra thin/.style= {line width=0.1pt},
+	very thin/.style=  {line width=0.2pt},
+	thin/.style=       {line width=0.4pt},% thin is the default
+	semithick/.style=  {line width=0.6pt},
+	thick/.style=      {line width=0.8pt},
+	very thick/.style= {line width=1.2pt},
+	ultra thick/.style={line width=1.6pt}
+}
+
+% Defines color spec 
+% http://www.color-hex.com for color details
+
+\definecolor{vancolor}{HTML}{1c375b}  
+\definecolor{vbncolor}{HTML}{5b1c37}
+\definecolor{vcncolor}{HTML}{375b1c}
+\definecolor{vabcolor}{HTML}{5b401c}
+\definecolor{vbccolor}{HTML}{1c5b40}
+\definecolor{vcacolor}{HTML}{401c5b}
+\definecolor{vbacolor}{HTML}{FF0080}
+\definecolor{vcbcolor}{HTML}{FF0000}
+\definecolor{vaccolor}{HTML}{800000}
+
+
+
+%\definecolor{vancolor}{HTML}{000000} 
+%\definecolor{vbncolor}{HTML}{202120}
+%\definecolor{vcncolor}{HTML}{363735}
+%\definecolor{vabcolor}{HTML}{4b4d4a}
+%\definecolor{vbccolor}{HTML}{4c4c4c}
+%\definecolor{vcacolor}{HTML}{595959}
+%\definecolor{vbacolor}{HTML}{666666}
+%\definecolor{vcbcolor}{HTML}{666666}
+%\definecolor{vaccolor}{HTML}{474747}
+
+
+% Define a espessura da linha
+\def \vanlw {thin}
+\def \vbnlw {thin}
+\def \vcnlw {thin}
+\def \vablw {ultra thick}
+\def \vbclw {ultra thick}
+\def \vcalw {ultra thick}
+\def \vbalw {thin}
+\def \vcblw {thin}
+\def \vaclw {thin}
+
+
+% Defines axis aspect ratio
+\def \axisheight {\linewidth}
+\def \axiswidth {1.4\linewidth} 
+
+
+\pgfplotsset{Axis Style/.style={
+		width=\axiswidth , height=\axisheight,
+		axis x line=center,
+		axis y line=middle,
+		samples=200,
+		ymin=-2, ymax=2,
+		xmin=0, xmax=13.5,
+		domain=0:4*pi,
+	}}
+	
+
+\begin{document}
+	\fontsize{8}{10}\selectfont
+ \begin{tikzpicture}   
+\begin{axis}[
+Axis Style,
+grid=major,
+xtick={	0,0.5236, 1.0472, 1.57, 2.0944,2.618, 3.1416, 3.665, 4.188, 4.712,5.236, 5.76, 6.28318, 6.8068, 7.33, 7.854, 8.377, 8.901, 9.4248, 9.948, 10.472, 11,11.52, 12.043, 12.57 },
+xticklabels={
+	$0$, , $\dfrac{\pi}{3}$, ,$\dfrac{2\pi}{3}$, ,$\pi$, ,$\dfrac{4\pi}{3}$, , $\dfrac{5\pi}{3}$, , $2\pi$, , $\dfrac{7\pi}{3}$, ,$\dfrac{8\pi}{3}$, ,$3\pi$, ,$\dfrac{10\pi}{3}$, ,$\dfrac{11\pi}{3}$, ,$4\pi$},
+ytick={-1.226,-0.7071,-0.4082,0,0.4082, 0.7071, 1.225},
+yticklabels={$-\frac{\sqrt{6}}{2}$,$-\frac{\sqrt{2}}{2}$,$-\frac{1}{\sqrt{6}}$,$0$,$\frac{1}{\sqrt{6}}$,$\frac{\sqrt{2}}{2}$,$\frac{\sqrt{6}}{2}$},
+ylabel={$\dfrac{V_{o}}{V_{i}[rms]}$},
+xlabel={$\omega t$},
+]
+\addplot [mark=none, vancolor,\vanlw] {sqrt(2/3)*sin(deg(x))};  % Van
+\addplot [mark=none, vbncolor,\vbnlw] {sqrt(2/3)*sin(deg(x+2.0944))};  % Vbn
+\addplot [mark=none, vcncolor,\vcnlw] {sqrt(2/3)*sin(deg(x-2.0944))};  % Vcn
+
+
+\addplot [mark=none, vabcolor,\vablw] {sqrt(2)*sin(deg(x+(11*3.1415/6)))}; % Vab
+\addplot [mark=none, vbacolor,\vbalw] {-sqrt(2)*sin(deg(x+(11*3.1415/6)))}; % Vba
+
+
+\addplot [mark=none, vbccolor,\vbclw] {sqrt(2)*cos(deg(x))}; % Vbc
+\addplot [mark=none, vcbcolor,\vcblw] {-sqrt(2)*cos(deg(x))}; % Vcb
+
+
+\addplot [mark=none, vcacolor,\vcalw] {sqrt(2)*sin(deg(x+(7*3.1415/6)))}; % Vca
+\addplot [mark=none, vaccolor,\vaclw] {-sqrt(2)*sin(deg(x+(7*3.1415/6)))}; % Vac
+
+\end{axis}
+        
+    \end{tikzpicture}
+    
+    
+\end{document} % End of file

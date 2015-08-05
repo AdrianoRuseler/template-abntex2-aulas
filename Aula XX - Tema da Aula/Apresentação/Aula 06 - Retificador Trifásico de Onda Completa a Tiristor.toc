@@ -1,0 +1,29 @@
+\beamer@endinputifotherversion {3.33pt}
+\select@language {brazil}
+\beamer@sectionintoc {1}{Retificador trif\IeC {\'a}sico a tiristor com carga resistiva}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Apresenta\IeC {\c c}\IeC {\~a}o da topologia}{2}{0}{1}
+\beamer@sectionintoc {2}{Metodologia empregada para entender a estrutura}{3}{0}{2}
+\beamer@subsectionintoc {2}{1}{Caracter\IeC {\'\i }stica est\IeC {\'a}tica do tiristor ideal}{4}{0}{2}
+\beamer@sectionintoc {3}{Resultados}{5}{0}{3}
+\beamer@subsectionintoc {3}{1}{Nomenclatura utilizada no PSIM}{6}{0}{3}
+\beamer@subsectionintoc {3}{2}{Caso particular da ponte de Graetz a tiristor}{7}{0}{3}
+\beamer@subsectionintoc {3}{3}{Caso particular da ponte de Graetz a tiristor}{8}{0}{3}
+\beamer@subsectionintoc {3}{4}{Tens\IeC {\~a}o senoidal de entrada do retificador}{9}{0}{3}
+\beamer@subsectionintoc {3}{5}{Polariza\IeC {\c c}\IeC {\~a}o do tiristor T1 e T4}{12}{0}{3}
+\beamer@subsectionintoc {3}{6}{Configura\IeC {\c c}\IeC {\~o}es poss\IeC {\'\i }veis T1 e T4}{13}{0}{3}
+\beamer@subsectionintoc {3}{7}{Polariza\IeC {\c c}\IeC {\~a}o do tiristor T2 e T5}{14}{0}{3}
+\beamer@subsectionintoc {3}{8}{Configura\IeC {\c c}\IeC {\~o}es poss\IeC {\'\i }veis T2 e T5}{15}{0}{3}
+\beamer@subsectionintoc {3}{9}{Polariza\IeC {\c c}\IeC {\~a}o do tiristor T3 e T6}{16}{0}{3}
+\beamer@subsectionintoc {3}{10}{Configura\IeC {\c c}\IeC {\~o}es poss\IeC {\'\i }veis T3 e T6}{17}{0}{3}
+\beamer@subsectionintoc {3}{11}{Opera\IeC {\c c}\IeC {\~a}o com angulo zero}{18}{0}{3}
+\beamer@subsectionintoc {3}{12}{Opera\IeC {\c c}\IeC {\~a}o com 30 graus de disparo}{19}{0}{3}
+\beamer@subsectionintoc {3}{13}{Opera\IeC {\c c}\IeC {\~a}o com 60 graus de disparo}{20}{0}{3}
+\beamer@subsectionintoc {3}{14}{Opera\IeC {\c c}\IeC {\~a}o com 90 graus de disparo}{21}{0}{3}
+\beamer@subsectionintoc {3}{15}{Regi\IeC {\~o}es de opera\IeC {\c c}\IeC {\~a}o}{22}{0}{3}
+\beamer@subsectionintoc {3}{16}{Opera\IeC {\c c}\IeC {\~a}o com 90 graus de disparo e carga indutiva}{23}{0}{3}
+\beamer@subsectionintoc {3}{17}{Regi\IeC {\~o}es de opera\IeC {\c c}\IeC {\~a}o}{24}{0}{3}
+\beamer@subsectionintoc {3}{18}{D\IeC {\'u}vidas??}{25}{0}{3}
+\beamer@subsectionintoc {3}{19}{Valores m\IeC {\'e}dios de tens\IeC {\~a}o na carga}{26}{0}{3}
+\beamer@subsectionintoc {3}{20}{Valores m\IeC {\'e}dios de tens\IeC {\~a}o na carga }{27}{0}{3}
+\beamer@subsectionintoc {3}{21}{Valores m\IeC {\'e}dios de tens\IeC {\~a}o na carga }{28}{0}{3}
+\beamer@sectionintoc {4}{Refer\IeC {\^e}ncias}{29}{0}{4}

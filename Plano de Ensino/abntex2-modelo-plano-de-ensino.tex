@@ -1,0 +1,645 @@
+%% abtex2-modelo-artigo.tex, v-1.9.5 laurocesar
+%% Copyright 2012-2015 by abnTeX2 group at http://www.abntex.net.br/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://www.abntex.net.br/
+%%
+%% This work consists of the files abntex2-modelo-artigo.tex and
+%% abntex2-modelo-references.bib
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Artigo Acadêmico em conformidade com
+% ABNT NBR 6022:2003: Informação e documentação - Artigo em publicação 
+% periódica científica impressa - Apresentação
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	article,			% indica que é um artigo acadêmico
+	12pt,				% tamanho da fonte
+	twoside,			% para impressão apenas no verso. Oposto a twoside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE % títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	sumario=tradicional
+]{abntex2-modelo-plano-de-aula}
+
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{nomencl} 			% Lista de simbolos
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{datetime}           % Tempo e hora.
+\usepackage{epstopdf}
+% ---
+		
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+		
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+% ---
+
+\usepackage{listings}
+\usepackage{amsmath}		
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{booktabs} % Para Tabelas
+\usepackage{subfig}  % permite ter subfiguras
+\usepackage{float}
+\usepackage{tikz,pgfplots}
+\usepackage{pdfpages}
+\usepackage{longtable}
+\usepackage{framed}
+
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{showexpl}
+\mdfdefinestyle{mdfexample2}{roundcorner=6pt,backgroundcolor = gray!35}
+
+% ---
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\DeclareMathOperator{\deriv}{d}		
+
+
+
+\newcounter{NumberInTable}
+\newcommand{\LTNUM}{\stepcounter{NumberInTable}{(\theNumberInTable)}}
+
+\newcommand{\Laplace}[1]{\ensuremath{\mathcal{L}{\left[#1\right]}}}
+\newcommand{\InvLap}[1]{\ensuremath{\mathcal{L}^{-1}{\left[#1\right]}}}
+
+
+
+% Definição de cores
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\definecolor{shadecolor}{rgb}{0.8,0.8,0.8}
+
+\lstset{ %
+	aboveskip=3mm,
+	belowskip=3mm,
+	backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+	basicstyle={\small\ttfamily},        % the size of the fonts that are used for the code
+	breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
+	breaklines=true,                 % sets automatic line breaking
+	captionpos=t,                    % sets the caption-position to bottom
+	commentstyle=\color{mygreen},    % comment style
+	columns=flexible,
+	deletekeywords={...},            % if you want to delete keywords from the given language
+	escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+	frame=tb,                        % adds a frame around the code
+	keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+	keywordstyle=\color{blue},       % keyword style
+	language=Matlab,                 % the language of the code
+	morekeywords={*,...},            % if you want to add more keywords to the set
+	numbers=none,                    % where to put the line-numbers; possible values are (none, left, right)
+	numbersep=5pt,                   % how far the line-numbers are from the code
+	numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+	rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+	showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+	showstringspaces=false,          % underline spaces within strings only
+	showtabs=false,                  % show tabs within strings adding particular underscores
+	stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+	stringstyle=\color{mymauve},     % string literal style
+	tabsize=3,                       % sets default tabsize to 3 spaces
+	texcl=true,						 % Permite o uso de acentuação no código
+	title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+%By default, listings does not support multi-byte encoding for source code. The extendedchar option only works for 8-bits encodings such as latin1.
+%
+%To handle UTF-8, you should tell listings how to interpret the special characters by defining them like so
+\lstset{literate=	
+	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+	{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+	{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+	{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+	{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+	{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+	{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1	 
+	{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+	{ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+	{€}{{\EUR}}1 {£}{{\pounds}}1 {ã}{{\~a}}1 {õ}{{\~o}}1 {Ã}{{\~A}}1 {Õ}{{\~O}}1	
+}
+
+\renewcommand{\lstlistingname}{Código--fonte }% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{Lista de códigos--fonte}% List of Listings -> List of Algorithms
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+	Nenhuma citação no texto.%
+	\or
+	Citado na página #2.%
+	\else
+	Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\universidade{Universidade Federal de Santa Catarina}
+\centro{CTC -- Centro Tecnológico}
+\departamento{Departamento de Engenharia Elétrica e Eletrônica}
+\local{Florianópolis}
+\data{\today}
+
+\autor{Prof. Nome \textsc{Sobrenome}, Dr. Eng.}
+
+\tipotrabalho{Plano de Ensino}
+\disciplina{Eletrônica Industrial}
+\codigo{EEL 7278} % Código da disciplina
+\semestre{2015/2}
+\aula{Plano de Ensino}
+\titulo{Modelo Canônico de Notas de Aula com \abnTeX}
+
+\preambulo{Modelo canônico de plano de ensino em conformidade
+	com as normas ABNT apresentado à comunidade de usuários \LaTeX.}
+
+\email{adriano.ruseler@posgrad.ufsc.br}
+\telefone{Tel: +55 (48) 3721-7464, 3721-7445}
+\celular{Cel: +55 (48) 88459814, 91273585}
+\website{\url{http://www.adrianoruseler.com}}
+\laboratorio{INEP -- Instituto de Eletrônica de Potência}
+\campus{Campus Universitário – Trindade, Florianópolis}
+\turma{Minha turma}
+\horario{Meu horário}
+\sala{Minha sala}
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={Modelo de plano de ensino com abnTeX2},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{notas de aula}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=black,          	% color of internal links
+    	citecolor=black,        		% color of links to bibliography
+    	filecolor=black,      		% color of file links
+		urlcolor=black,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ---
+% Altera as margens padrões
+% ---
+\setlrmarginsandblock{3cm}{3cm}{*}
+\setulmarginsandblock{3cm}{3cm}{*}
+\checkandfixthelayout
+% ---
+
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% Espaçamento simples
+\SingleSpacing
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+
+\imprimircapaUFSC 
+
+%\imprimirletterUFSC
+
+% ]  				% FIM DE ARTIGO EM DUAS COLUNAS
+% ---
+
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+\pagestyle{notasUFSC}
+
+
+
+\begin{mdframed}[style=mdfexample2]	\center
+	\section{Dados da Disciplina} % a serem alcançados pelos alunos e não pelo professor. Podem ser divididos em gerais e específicos. 
+\end{mdframed}
+
+\begin{description}
+	\item[Nome:]  Eletrônica Industrial
+	\item[Código:] EEL7278\footnote{ Disciplina fictícia elaborada para o concurso simplificado (Edital n. 047/DDP/2015).} 
+	\item[Professor:] Adriano Ruseler
+	\item[Curso:] Engenharia Elétrica
+	\item[Tipo:] Disciplina fictícia elaborada para o concurso simplificado  \\(Edital n. 047/DDP/2015).
+	\item[Carga horária:] 4 créditos
+	\item[Pré-requisitos:] EEL7055	-- Circuitos Elétricos B
+	\item[Comunicação:] Moodle \url{http://moodle.adrianoruseler.com/}
+	\item[Monitoria: ] Disciplina não possui monitor. Em caso de dúvidas, procurar o professor. 
+	\item[Ementa:]Retificadores monofásicos e trifásicos a diodo; retificadores monofásicos e trifásicos a tiristor; conversor CC-CC abaixador de tensão; conversor CC-CC elevador; conversores CC-CA de tensão; conversores CC-CA de corrente;
+\end{description}
+
+
+
+\begin{mdframed}[style=mdfexample2]	\center
+	\section{Objetivos} % a serem alcançados pelos alunos e não pelo professor. Podem ser divididos em gerais e específicos. 
+\end{mdframed}
+
+Os principais objetivos da disciplina são:
+
+\begin{enumerate}
+	\item Introduzir os conceitos fundamentais dos retificadores a diodo e a tiristor;	
+	\item Apresentar o princípio de funcionamento das principais topologias retificadoras, e uma metodologia de cálculo para projeto das mesmas.
+	\item Introduzir os conceitos fundamentais dos conversores CC-CC e CC-CA;
+	\item Apresentar o princípio de funcionamento das principais topologias dos
+	conversores CC-CC e CC-CA, e uma metodologia de cálculo para projeto das
+	mesmas.
+\end{enumerate}
+
+No final do curso o estudante deverá ser capaz de realizar o projeto completo
+de um conversor estático.
+
+\hspace{1cm}
+
+\begin{mdframed}[style=mdfexample2]	\center
+	\section{Conteúdo programático} % conteúdos programados para a aula organizados em tópicos (de 4 a 8).
+\end{mdframed}
+
+\begin{enumerate}      	
+	\item\textbf{Retificadores a Diodo}
+	\begin{enumerate}
+		\item Monofásico de onda completa
+		\item Trifásico de onda completa
+		\item Trifásico com ponto médio
+	\end{enumerate}
+	\item\textbf{Retificadores a Tiristor}
+	\begin{enumerate}
+		\item Monofásico de onda completa
+		\item Trifásico de onda completa
+		\item Trifásico com ponto médio
+	\end{enumerate}       		
+	
+	
+	\item \textbf{Conversores CC-CC abaixador de tensão (Buck)}
+	\begin{enumerate}
+		\item Princípio de operação	
+		\item Funcionamento com carga RLE
+		\item Condução contínua e descontínua
+		\item Característica de carga
+		\item Ondulação da corrente
+		\item Filtragem (corrente de entrada e tensão de saída)
+		\item Controle do conversor Buck empregando modulação PWM
+		\item Conversor Buck isolado (Conversor Forward)  	
+	\end{enumerate}  
+	
+	\item \textbf{Conversor CC-CC elevador (Boost)}
+	\begin{enumerate}
+		\item Princípio de operação
+		\item Condução Contínua e descontínua
+		\item Característica de carga
+		\item Ondulação da corrente
+		\item Filtros de entrada e de saída
+		\item Controle do conversor Boost empregando modulação PWM
+	\end{enumerate}        		
+	
+	
+	\item\textbf{Conversores CC-CA de tensão}       
+	
+	\begin{enumerate}
+		\item Conversor CC-CA monofásico em ponte
+		\item  Conversor CC-CA monofásico com ponto médio
+		\item  Conversor CC-CA trifásico
+		\item  Reversibilidade dos conversores CC-CA de tensão
+	\end{enumerate} 
+	
+	\item \textbf{Conversor CC-CA de corrente}
+	\begin{enumerate}
+		\item  Conversor CC-CA de corrente monofásico
+		\item  Conversor CC-CA de corrente trifásico
+	\end{enumerate}
+	
+	
+	
+\end{enumerate} 
+
+
+
+
+\begin{mdframed}[style=mdfexample2]	\center
+	\section{Ferramentas utilizadas na disciplina}
+\end{mdframed}        
+
+Serão utilizados dois aplicativos no decorrer da disciplina:
+\begin{enumerate}
+	\item \textbf{PSIM} - Simulação numérica 
+	\url{http://powersimtech.com/download-demo/}
+	\item \textbf{MATHCAD} - Planilha de cálculos \url{http://www.ptc.com/product/mathcad}
+\end{enumerate} 
+
+Treinamento básico dos softwares utilizados se dará no decorrer das aulas.
+Maiores informações podem ser encontradas no site da disciplina \url{http://eel7278.adrianoruseler.com} 
+
+\begin{mdframed}[style=mdfexample2]	\center
+	\section{Avaliação} % pode ser realizada com diferentes propósitos (diagnóstica, formativa e somativa). Interessante explicitar a atividade avaliativa e os critérios de correção.
+\end{mdframed}
+
+O aluno será avaliado através de 2 provas ($P1$ e $P2$) e um trabalho de projeto e simulação proposto ($T1$).
+A média final $MF$ será calculada da seguinte maneira:
+\[
+MF = \left( {\frac{{P1 + P2 + T1}}{3}} \right)
+\]
+
+Critério de aprovação:
+\[
+\begin{cases}
+\textbf{Aprovado},& \text{se   } MF \ge 6,00;\\
+\textbf{Recuperação},& \text{se   } 3,00 \le MF < 6,00;\\
+\textbf{Reprovado}, & \text{se   } MF \le 3,00
+\end{cases}
+\]
+
+Caso o aluno necessite da prova de recuperação (REC), a média final com recuperação (MFR) será: 
+
+\[MFR = \frac{{MF + REC}}{2}\]
+
+Critério final de aprovação:
+\[
+\begin{cases}
+\textbf{Aprovado},& \text{se   } MFR \ge 6,00;\\
+\textbf{Reprovado}, & \text{se   } MFR \le 6,00
+\end{cases}
+\]
+
+
+\newpage
+\textbf{Conteúdo da Prova 01:}
+\begin{enumerate}      	
+	\item {Retificadores a Diodo}
+	\begin{enumerate}
+		\item Monofásico de onda completa
+		\item Trifásico de onda completa
+		\item Trifásico com ponto médio
+	\end{enumerate}
+	\item Retificadores a Tiristor
+	\begin{enumerate}
+		\item Monofásico de onda completa
+		\item Trifásico de onda completa
+		\item Trifásico com ponto médio
+	\end{enumerate}       		
+\end{enumerate}
+
+\textbf{Conteúdo da Prova 02:}  
+
+\begin{enumerate}      	
+	
+	\item  Conversores CC-CC abaixador de tensão (Buck)    	
+	
+	\item Conversor CC-CC elevador (Boost)       	
+	
+	\item Conversores CC-CA de tensão       
+	
+	\begin{enumerate}
+		\item Conversor CC-CA monofásico em ponte
+		\item  Conversor CC-CA monofásico com ponto médio
+		\item  Conversor CC-CA trifásico
+	\end{enumerate} 
+	
+	\item Conversor CC-CA de corrente
+	\begin{enumerate}
+		\item  Conversor CC-CA de corrente monofásico
+		\item  Conversor CC-CA de corrente trifásico
+	\end{enumerate}   	
+\end{enumerate} 	
+
+
+
+
+\emph{As datas das provas e dos trabalhos poderão sofrer alterações.} 
+
+
+
+\begin{mdframed}[style=mdfexample2]	\center
+	\section{Bibliografia}
+\end{mdframed}
+
+\subsection{Bibliografia Básica}
+
+
+
+
+I. Barbi, “Eletrônica de Potência”. Edição do Autor, 6a Edição Florianópolis,
+2006.
+
+D. C. Martins \& I. Barbi, “Eletrônica de Potência: Conversores CC-CC Básicos
+Não Isolados”. Edição dos Autores, 3a Edição Florianópolis, 2008.
+
+D. C. Martins \& I. Barbi, “Introdução ao Estudo dos Conversores CC-CA”.
+Edição dos Autores, 2a Edição, Florianópolis-SC, UFSC, Maio/2008.
+
+I. Barbi, “Eletrônica de Potência: Projetos de Fontes Chaveadas”. Edição do
+Autor, 2a Edição, Florianópolis-SC, UFSC, 2007.
+
+I. Barbi \& F. P. de Souza, “Conversores CC-CC Isolados de Alta Freqüênica
+com Comutação Suave”. Edição dos Autores, Florianópolis, 1999.
+
+D. C. Martins, “Eletrônica de Potência – Semicondutores de Potência
+Controlados, Conversores CC-CC Isolados e Conversores CC-CC a Tiristor
+(Comutação Forçada)”. Publicação Interna – UFSC-INEP, Florianópolis, SC,
+Maio/2006.
+
+A.J. Perin, “Teoria e Aplicação de Modulação por Largura de Pulsos (PWM)
+com Otimização de Harmônicas para Conversores Estáticos de Frequência”. 6ª
+CBA – Minicursos, pp. 01-15, Belo Horizonte-MG, Novembro/1986.
+
+
+
+\subsection{Bibliografia Complementar}
+N. Mohan, T. Underland \& W. Robbins, “Power Electronics: Converters,
+Applications and Design”. John Wiley \& Sons, New York-USA, 2ª Edição, 1995.
+
+B. W. Williams, “Power Electronics – Devices, Drives, Applications and Passive
+Components McGraw-Hill, Inc., New York-USA, 2ª Edição, 1992.
+
+A. I. Pressman, “Switching Power Supply Design”. McGraw-Hill, Inc., New York-
+USA, 1991.
+
+R.G. Hoft, “Semiconductor Power Electronics”. Van Nostrand Reinhold
+Company. Inc., New York-USA, 1986.
+
+C. W. Lander, “Eletrônica Industrial Teoria e Aplicações”. McGraw-Hill, Rio de
+Janeiro, 1988.
+
+M. H. Rashid, “Power Electronics – Circuits, Devices, and Applications”.
+Prentice-Hall International Editions, Inc., New Jersey, 1988.
+
+R. W. Erickson, “Fundamentals of Power Electronics”. Editora Chapman \& Hall,
+New York, USA, 1997.
+
+J. G. Kassakian, M. F. Schlecht \& G. C. Verghese, “Principles of Power
+Electronics“. Addison-Wesley Publishing Company, Inc., Massachussets, USA.
+
+S. B. Dewan, G. R. Slemon \& A. Straughen, “Power Semiconductor Drives”. A
+Wiley-Interscience Publication, John Wiley \& Sons, Inc. New York, 1984.
+
+J. Vithayathil, “Power Electronics – Principles and Applications”. McGraw-Hill,
+Inc., 1995.
+
+R. S. Ramshaw, “Power Electronics Semiconductors Switches”. Chapman \&
+Hall, 2nd Edition, 1993.
+
+B. D. Bedford \& R. G. Hoft, “Principles of Inverter Circuits“. John Wiley \& Sons,
+Inc., New York, 1964.
+
+\hspace{1cm}
+\newpage
+\begin{mdframed}[style=mdfexample2]	\center
+	\section{Sítios importantes}
+\end{mdframed}
+
+\begin{description}
+	\item[Moodle da Disciplina] \url{http://moodle.adrianoruseler.com/}
+	\item[Site da disciplina EEL7278] \url{http://eel7278.adrianoruseler.com/}
+	\item[Universidade Federal de Santa Catarina] \url{http://ufsc.br/}
+	\item[Departamento de Engenharia Elétrica e Eletrônica] \url{http://deel.ufsc.br/}
+	\item[Instituto de Eletrônica de Potência] \url{http://inep.sites.ufsc.br/}
+	%	\item[Power Guru]\url{http://www.powerguru.org/}
+\end{description}
+
+
+
+
+\begin{mdframed}[style=mdfexample2]	\center
+	\section{Cronograma de aulas}
+\end{mdframed}
+
+\begin{description}
+	\item[Aula 01] – Retificador Monofásico de Onda Completa a Diodo;
+	\item[Aula 02] – Retificador Trifásico com Ponto Médio a Diodo;
+	\item[Aula 03] – Retificador Trifásico de Onda Completa a Diodo;
+	\item[Aula 04] – Retificador Monofásico de Onda Completa a Tiristor;
+	\item[Aula 05] – Retificador Trifásico com Ponto Médio a Tiristor;
+	\item[Aula 06] – Retificador Trifásico de Onda Completa a Tiristor;
+	\item[Aula 07] – Conversor CC-CC Abaixador de Tensão (Buck);
+	\item[Aula 08] – Conversor CC-CC Elevador de Tensão (Boost);
+	\item[Aula 09] – Conversor CC-CA de Tensão;
+	\item[Aula 10] – Conversor CC-CA de Corrente.
+	
+\end{description}
+
+
+
+% Referências bibliográficas
+\clearpage
+\pagestyle{plain}
+\begin{thebibliography}{}
+	
+	\bibitem{IvoBarbi2006} I. Barbi, “Eletrônica de Potência”. Edição do Autor, 6a Edição Florianópolis,
+	2006.
+	
+	\bibitem{DCMBarbi1} D. C. Martins \& I. Barbi, “Eletrônica de Potência: Conversores CC-CC Básicos Não Isolados”. Edição dos Autores, 3a Edição Florianópolis, 2008.
+	
+	\bibitem{DCMBarbi2}	D. C. Martins \& I. Barbi, “Introdução ao Estudo dos Conversores CC-CA”. Edição dos Autores, 2a Edição, Florianópolis-SC, UFSC, Maio/2008.
+	
+	\bibitem{Barbi02} I. Barbi, “Eletrônica de Potência: Projetos de Fontes Chaveadas”. Edição do
+	Autor, 2a Edição, Florianópolis-SC, UFSC, 2007.
+	
+	\bibitem{BarbiFabiana}	I. Barbi \& F. P. de Souza, “Conversores CC-CC Isolados de Alta Freqüênica com Comutação Suave”. Edição dos Autores, Florianópolis, 1999.
+	
+	\bibitem{DCM}	D. C. Martins, “Eletrônica de Potência – Semicondutores de Potência
+	Controlados, Conversores CC-CC Isolados e Conversores CC-CC a Tiristor
+	(Comutação Forçada)”. Publicação Interna – UFSC-INEP, Florianópolis, SC,
+	Maio/2006.
+	
+\end{thebibliography}
+
+
+
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+% \postextual
+
+
+
+\end{document}
