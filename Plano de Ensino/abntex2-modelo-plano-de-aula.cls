@@ -179,21 +179,21 @@
 \makeevenhead{notasUFSC}
 {\imprimircodigo\hskip.1cm--\hskip.1cm\imprimirdisciplina\hskip.1cm--\hskip.1cm\imprimiraula} %%pagina par
 {}
-{EEL/CTC/UFSC}
+{\includegraphics[width=20pt]{logo-ufsc.pdf}}
 \makeoddhead{notasUFSC} %%pagina ímpar ou com oneside
 {\imprimircodigo\hskip.1cm--\hskip.1cm\imprimirdisciplina\hskip.1cm--\hskip.1cm\imprimiraula}
 {}
-{EEL/CTC/UFSC}
+{\includegraphics[width=20pt]{logo-ctc.pdf}}
 \makeheadrule{notasUFSC}{\textwidth}{\normalrulethickness} %linha
 %\makefootrule{notasUFSC}{\textwidth}{\normalrulethickness}{1pt}
 
 %% rodapé
 \makeevenfoot{notasUFSC} %%pagina par
-{}
+{EEL/CTC/UFSC}
 {}
 {Página \thepage\ de \thelastpage}
 \makeoddfoot{notasUFSC} %%pagina ímpar ou com oneside
-{}
+{EEL/CTC/UFSC}
 {}
 {Página \thepage\ de \thelastpage}
 
@@ -276,9 +276,9 @@
 %	TOPIC SECTION
 %----------------------------------------------------------------------------------------
 
-{ \Large \bfseries \imprimirtitulo} \\[0.5cm] % Title of your document
+%{ \Large \bfseries \imprimirtitulo} \\[0.5cm] % Title of your document
 
-\emph{\imprimirpreambulo}\\[1.0cm]
+%\emph{\imprimirpreambulo}\\[1.0cm]
 
 
 %----------------------------------------------------------------------------------------

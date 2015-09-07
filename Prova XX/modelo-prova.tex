@@ -1,0 +1,200 @@
+
+\documentclass[11pt,paper=a4,answers]{exam}
+
+\newcommand*{\renameenviron}[1]{%
+	\expandafter\let\csname exam-#1\expandafter\endcsname
+	\csname #1\endcsname
+	\expandafter\let\csname endexam-#1\expandafter\endcsname
+	\csname end#1\endcsname
+	\expandafter\let\csname #1\endcsname\relax
+	\expandafter\let\csname end#1\endcsname\relax
+}
+\renameenviron{framed}
+\renameenviron{shaded}
+\renameenviron{leftbar}
+\usepackage{framed}
+
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{graphicx,lastpage}
+\usepackage{upgreek}
+\usepackage{censor}
+%\usepackage{framed}
+
+
+\censorruledepth=-.2ex
+\censorruleheight=.1ex
+\hyphenpenalty 10000
+\usepackage[paperheight=10.5in,paperwidth=8.27in,bindingoffset=0in,left=0.8in,right=1in,
+top=0.7in,bottom=1in,headsep=.5\baselineskip]{geometry}
+
+
+\flushbottom
+\usepackage[normalem]{ulem}
+\renewcommand\ULthickness{2pt}   %%---> For changing thickness of underline
+\setlength\ULdepth{1.5ex}%\maxdimen ---> For changing depth of underline
+\renewcommand{\baselinestretch}{1}
+\pagestyle{empty}
+
+\pagestyle{headandfoot}
+\headrule
+\newcommand{\continuedmessage}{%
+	\ifcontinuation{\footnotesize Question \ContinuedQuestion\ continues\ldots}{}%
+}
+\runningheader{\footnotesize EEL7278 -- Eletrônica Industrial}
+{\footnotesize }
+{\footnotesize P\'agina \thepage\ de \numpages}
+\footrule
+\footer{\footnotesize Prova 01 -- \today}
+{}
+{\ifincomplete{\footnotesize Pergunta  \IncompleteQuestion\ continua na pr\'oxima p\'agina \ldots}{\iflastpage{\footnotesize Fim do Exame.}{\footnotesize Continua na pr\'oxima p\'agina\ldots}}}
+
+\usepackage{cleveref}
+\crefname{figure}{figure}{figures}
+\crefname{question}{question}{questions}
+
+
+%==============================================================
+\begin{document}
+	
+	%% \thispagestyle{empty}	
+	\noindent
+	\begin{minipage}[l]{.1\textwidth}%
+		\noindent
+		\includegraphics[width=2\textwidth]{logo-ufsc}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[r]{.8\textwidth}%
+		\begin{center}
+			{\large \bfseries UNIVERSIDADE FEDERAL DE SANTA CATARINA \par
+				\large Departamento de Engenharia Elétrica e Eletrônica \\[4pt]
+			%	\vspace{0.5cm}
+				Eletrônica Industrial {(EEL7278)}  \par
+				\vspace{0.5cm}
+				\huge Prova 01
+				}
+			%  \vspace{0.5cm}
+		\end{center}
+	\end{minipage}	
+		
+		\par
+		\noindent
+		\uline
+%		\uline{Tempo: 90 min.   \hfill \normalsize\emph{\underline{Term}} \hfill  }
+	\hfill 	
+			
+\par
+\bigskip\bigskip
+\begin{minipage}[t]{.6\textwidth}%
+	Professor: Adriano Ruseler \par
+	Semestre: 2015/2 \par
+	Aluno: \makebox[2.5in]{\hrulefill} \par
+	
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{.4\textwidth}%
+	Turma:  07202A \par
+     \par
+	Matricula: \makebox[1.5in]{\hrulefill} \par
+\end{minipage}
+\par
+\bigskip
+
+
+\begin{framed}
+	\centering Prova referente aos assuntos:\\ \raggedright
+	 \textbf{Aula 01 -- Retificador Monofásico de Onda Completa a Diodo }\\
+	 \textbf{Aula 02 – Retificador Monofásico de Onda Completa a Tiristor }\\
+	 \textbf{Aula 03 – Retificador Trifásico de Onda Completa a Diodo}\\
+	 \textbf{Aula 04 – Retificador Trifásico com Ponto Médio a Diodo}\\
+	 \textbf{Aula 05 – Retificador Trifásico de Onda Completa a Tiristor}\\
+	 \textbf{Aula 06 – Retificador Trifásico com Ponto Médio a Tiristor}
+\end{framed}
+
+
+		
+\begin{questions}
+			
+\pointsinrightmargin
+\pointsdroppedatright
+\marksnotpoints
+%\marginpointname{mark}
+\pointpoints{mark}{marks}
+\pointformat{\boldmath\themarginpoints}
+\bracketedpoints
+			
+			
+			\question[06]
+			\label{Q:perunit}
+			For a surface $\vec{r}= \vec{r} (u \cos v, u \sin v, f(u))$. Write down the first fundamental form of the surface. Show that the parametric curves are orthogonal.
+			\droppoints
+			
+			\question[06]
+			\label{Q:perunit}
+			For a surface $\vec{r}= \vec{r} (u \cos v, u \sin v, f(u))$. Write down the first fundamental form of the surface. Show that the parametric curves are orthogonal.
+			\droppoints
+			
+						
+			\question[10]
+			\label{Q:zbus}
+			Prove that necessary conditions for the curve $u = u(t), v = v(t)$ on a surface $\vec(r) = \vec(r)(u,v)$ to be geodesic is that \begin{equation}U \frac{\partial T}{\partial \dot{v}} - V    \frac{\partial T}{\partial \dot{u}}\end{equation}
+			where
+			$$ U = \frac{d}{dt} \Big(\frac{\partial T}{\partial \dot{u}}\Big) - \frac{\partial T}{\partial u} = \frac{1}{2T}\frac{dT}{dt}\frac{\partial T}{\partial \dot{u}}$$
+			$$ V = \frac{d}{dt} \Big(\frac{\partial T}{\partial    \dot{v}}\Big) - \frac{\partial T}{\partial v} = \frac{1}{2T}\frac{dT}{dt}\frac{\partial T}{\partial \dot{v}}$$
+			\droppoints
+			
+			
+			
+			
+			
+			
+			
+			\question[8]
+			\label{Q:zbus}
+			For the curve
+			$$
+			x = a(3u - u^{3}),\qquad y = 3au^{2},\qquad z = a(3u + u^{3})
+			$$
+			show that $$\uptau = k  =  \frac{1}{3a(1+u^{2})^{2}}$$
+			\droppoints
+			
+			
+			
+			
+			
+			
+			
+			\question[8]
+			\label{Q:zbus}
+			A curve is uniquely determined except as the position in space, when its curvature and            torsion are given functions of its arc length.
+			\droppoints
+			
+			
+			
+			\question[8]
+			\label{Q:zbus}
+			Show that there exists an infinite family of involutes for a  gives curve.
+			\droppoints
+			\newpage
+			
+			
+			
+			
+			\question[08]
+			\label{Q:ybus}
+			Give short answers of the following questions.
+			\begin{enumerate}
+				\item Define Helicoids?
+				\item Define spherical indicatrix?
+				\item Define the intrinsic equation?
+				\item Write the statement of existence theorem for space curve?
+				\item The normal curvature $k_{n}$ is equal to the what?
+				\item Prove that $L = -n_{1} \cdot r_{1}$ and $N = -n_{2}    \cdot r_{2}$?
+				\item Define the geodesic?
+				\item Write down the equation of tangent plane?
+				\item If equation of the circle is $x^{2} + y^{2} = a^{2}$ then the parametric equations            of circles are \xblackout{forty     two}?
+			\end{enumerate}
+		\end{questions}
+		\begin{center}
+			\rule{.5\textwidth}{1pt}
+		\end{center}
+	\end{document} 
