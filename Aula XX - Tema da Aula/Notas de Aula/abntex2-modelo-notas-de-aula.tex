@@ -56,6 +56,12 @@
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
 
+\usepackage{amsmath}
+\usepackage{siunitx}
+\sisetup{detect-all}
+\sisetup{round-mode=places,round-precision=2}
+\DeclareSIUnit \VA {VA} %apparent power
+
 % ---
 		
 % ---
@@ -71,6 +77,10 @@
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 % ---
 
+%Numeração dos floats por capítulo
+\counterwithin{figure}{section} 
+\counterwithin{table}{section}
+\counterwithin{equation}{section}
 
 
 
@@ -246,6 +256,42 @@ exemplos e informações adicionais de uso de \abnTeX\ e de \LaTeX.
 \newpage
 \section{Exemplos de comandos}
 
+
+\subsection{Exemplo de equação}
+
+
+Para a obtenção da corrente de carga é recomendável o emprego da Série de Fourier. Decompondo-se a tensão obtém-se a expressão \eqref{eq:2.77}.
+
+\begin{equation}\label{eq:2.77}
+	{v_L}(\omega t) = \sqrt 2 \,{V_2}\,\left[ {\frac{2}{\pi } - \frac{4}{{3\pi }}\,\cos \,(2\omega t) - \frac{4}{{15\pi }}\,\cos \,(4\omega t) - \, \ldots } \right]
+\end{equation}
+
+\subsection{Exemplo de tabela}
+
+
+Table \ref{tab:inversormotorstep} shows the dc voltage distribution between each bus capacitor for different load conditions. As the load increases the system becomes more balanced  due to increased of real power processed and decrease of reactive power exchanged.
+
+
+\begin{table}[!h]
+	\caption{Bus capacitor voltage and inverter output current at no load (\#0), one load step (\#1), two load step (\#2) and  three load step (\#3) conditions.}
+	\label{tab:inversormotorstep}
+	\centering	
+	\resizebox{\linewidth}{!}{%
+		\begin{tabular}{r|r|r|r|r|r|r|r|r|r} \toprule
+			&\multicolumn{3}{c|}{\textbf{Phase A}}&\multicolumn{3}{c|}{\textbf{Phase B}}&\multicolumn{3}{c}{\textbf{Phase C}}\\\hline	
+			&$W_{a1}$&$W_{a2}$&$W_{a3}$&$W_{b1}$&$W_{b2}$&$W_{b3}$&$W_{c1}$&$W_{c2}$&$W_{c3}$\\\hline	
+			$V_{\text{RMS\#0}} [\SI{}{\V}]$ & $\num{377.47}$ & $\num{395.33}$ & $\num{417.42}$ & $\num{378.45}$ & $\num{394.80}$ & $\num{416.93}$ & $\num{419.27}$ & $\num{395.06}$ & $\num{375.74}$\\\hline
+			$I_{\text{RMS\#0}} [\SI{}{\A}]$ & $\num{2.1838}$ & $\num{2.2999}$ & $\num{3.5054}$ & $\num{2.1238}$ & $\num{2.4817}$ & $\num{3.4562}$ & $\num{3.5370}$ & $\num{2.3312}$ & $\num{2.1689}$\\\hline
+			$V_{\text{RMS\#1}} [\SI{}{\V}]$ & $\num{393.00}$ & $\num{396.58}$ & $\num{413.86}$ & $\num{392.65}$ & $\num{398.69}$ & $\num{412.04}$ & $\num{413.92}$ & $\num{395.06}$ & $\num{375.74}$\\\hline
+			$I_{\text{RMS\#1}} [\SI{}{\A}]$ & $\num{2.4742}$ & $\num{2.5153}$ & $\num{3.4450}$ & $\num{2.4563}$ & $\num{2.4768}$ & $\num{3.4246}$ & $\num{3.4667}$ & $\num{2.4784}$ & $\num{2.4238}$\\\hline
+			$V_{\text{RMS\#2}} [\SI{}{\V}]$ & $\num{392.21}$ & $\num{394.49}$ & $\num{408.76}$ & $\num{392.63}$ & $\num{397.45}$ & $\num{405.32}$ & $\num{408.52}$ & $\num{398.12}$ & $\num{389.40}$\\\hline
+			$I_{\text{RMS\#2}} [\SI{}{\A}]$ & $\num{2.6773}$ & $\num{2.6704}$ & $\num{3.7173}$ & $\num{2.6641}$ & $\num{2.6998}$ & $\num{3.5942}$ & $\num{3.6715}$ & $\num{2.6967}$ & $\num{2.6158}$\\\hline
+			$V_{\text{RMS\#3}} [\SI{}{\V}]$ & $\num{389.67}$ & $\num{391.57}$ & $\num{401.79}$ & $\num{394.47}$ & $\num{398.27}$ & $\num{412.04}$ & $\num{401.66}$ & $\num{394.99}$ & $\num{386.27}$\\\hline
+			$I_{\text{RMS\#3}} [\SI{}{\A}]$ & $\num{3.0143}$ & $\num{2.9992}$ & $\num{3.9555}$ & $\num{3.0152}$ & $\num{3.7978}$ & $\num{3.4246}$ & $\num{3.8671}$ & $\num{3.0002}$ & $\num{2.8989}$\\\hline
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
 
 \subsection{Inserindo código fonte}
 
